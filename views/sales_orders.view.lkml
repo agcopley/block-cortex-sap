@@ -1935,7 +1935,7 @@ view: sales_orders {
 
   measure: count_orders {
     type: number
-    sql: count(${total_orders}) ;;
+    sql: count(distinct(${total_orders}));;
     hidden: no
   }
 
