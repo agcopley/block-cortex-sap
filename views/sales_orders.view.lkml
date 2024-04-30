@@ -1422,6 +1422,12 @@ view: sales_orders {
     hidden: no
   }
 
+  dimension: sales_document_vbeln_v2 {
+    type: string
+    sql: if(${TABLE}.DocumentCategory_VBTYP}='C',${TABLE}.SalesDocument_VBELN ||${TABLE}.Item_POSNR,NULL) ;;
+    hidden: no
+  }
+
   dimension: sales_group_vkgrp {
     type: string
     sql: ${TABLE}.SalesGroup_VKGRP ;;

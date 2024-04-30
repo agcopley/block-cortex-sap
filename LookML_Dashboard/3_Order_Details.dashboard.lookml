@@ -56,7 +56,7 @@
     fields: [sales_orders.sales_order_status, count_of_sales_document_vbeln]
     sorts: [count_of_sales_document_vbeln desc]
     limit: 500
-    dynamic_fields: [{measure: count_of_sales_document_vbeln, based_on: sales_orders.sales_document_vbeln,
+    dynamic_fields: [{measure: count_of_sales_document_vbeln, based_on: sales_orders.sales_document_vbeln_v2,
         expression: '', label: Count of Sales Document Vbeln, type: count_distinct,
         _kind_hint: measure, _type_hint: number}]
     value_labels: labels
