@@ -2291,7 +2291,7 @@ view: sales_orders {
 
   measure: count_blocked_orders {
     type: count_distinct
-    sql: ${sales_document_vbeln} || ${item_posnr} ;;
+    sql: if(${document_category_vbtyp}='C',${sales_document_vbeln}||${item_posnr},NULL)
     filters: [blocked_orders:"Blocked"]
     hidden: no
   }
