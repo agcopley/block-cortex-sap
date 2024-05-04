@@ -1422,6 +1422,12 @@ view: sales_orders {
     hidden: no
   }
 
+  dimension: sales_document_vbeln_v2 {
+    type: string
+    sql: if(${TABLE}.DocumentCategory_VBTYP='C',${TABLE}.SalesDocument_VBELN ||${TABLE}.Item_POSNR,NULL) ;;
+    hidden: no
+  }
+
   dimension: sales_group_vkgrp {
     type: string
     sql: ${TABLE}.SalesGroup_VKGRP ;;
@@ -1929,13 +1935,13 @@ view: sales_orders {
   ##################################################### Total Orders  ############################################################
   dimension: total_orders {
     type: string
-    sql: if(${document_category_vbtyp}='C',${sales_document_vbeln},NULL) ;;
+    sql: if(${document_category_vbtyp}='C',${sales_document_vbeln}||${item_posnr},NULL) ;;
     hidden: no
   }
 
   measure: count_orders {
     type: number
-    sql: count(${total_orders}) ;;
+    sql: count(${total_orders});;
     hidden: no
   }
 
@@ -2004,13 +2010,13 @@ view: sales_orders {
   ##################################################### Canceled Orders  ############################################################
   dimension: canceled_order {
     type: string
-    sql: IF(${rejection_reason_abgru} IS NOT NULL,'Canceled','NotCanceled') ;;
+    sql: IF(${rejection_reason_abgru} IS NOT NULL AND TRIM(${rejection_reason_abgru})<>'','Canceled','NotCanceled') ;;
     hidden: no
   }
 
   measure: count_canceled_order {
     type: count_distinct
-    sql: ${sales_document_vbeln} || ${item_posnr} ;;
+    sql: if(${document_category_vbtyp}='C',${sales_document_vbeln}||${item_posnr},NULL) ;;
     filters: [canceled_order: "Canceled"]
     hidden: no
   }
@@ -2049,7 +2055,7 @@ view: sales_orders {
 
   measure: count_total_orders {
     type: count_distinct
-    sql: ${sales_document_vbeln} ;;
+    sql: if(${document_category_vbtyp}='C',${sales_document_vbeln}||${item_posnr},NULL) ;;
     hidden: no
   }
 
