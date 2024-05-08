@@ -49,12 +49,6 @@ sql_always_where: ${Client_ID} = "@{CLIENT}" ;;
 
 explore: sales_orders {
 
-  join: language_map {
-    fields: []
-    type: left_outer
-    sql_on: ${language_map.looker_locale}='{{ _user_attributes['locale'] }}' ;;
-    relationship: many_to_one
-  }
 
   join: deliveries{
     type: left_outer
@@ -87,7 +81,7 @@ explore: sales_orders {
     relationship: one_to_many
     sql_on: ${sales_orders.material_number_matnr}=${materials_md.material_number_matnr}
           and ${sales_orders.client_mandt}=${materials_md.client_mandt} and
-          ${materials_md.language_spras}=${language_map.language_key};;
+          ;;
   }
 
   join: customers_md {
@@ -110,7 +104,7 @@ explore: sales_orders {
     relationship: one_to_many
     sql_on: ${customers_md.country_key_land1}=${countries_md.country_key_land1}
           and ${countries_md.client_mandt}=${sales_orders.client_mandt}
-          and ${countries_md.language_spras}=${language_map.language_key} ;;
+          ;;
   }
 
   join: sales_organizations_md {
@@ -118,14 +112,14 @@ explore: sales_orders {
     relationship: one_to_many
     sql_on: ${sales_organizations_md.sales_org_vkorg}=${sales_orders.sales_organization_vkorg}
           and ${sales_organizations_md.client_mandt}=${sales_orders.client_mandt}
-          and ${sales_organizations_md.language_spras}=${language_map.language_key} ;;
+           ;;
     }
     join: distribution_channels_md {
       type: left_outer
       relationship: one_to_many
       sql_on: ${distribution_channels_md.distribution_channel_vtweg}=${sales_orders.distribution_channel_vtweg}
             and  ${sales_orders.client_mandt}=${distribution_channels_md.client_mandt}
-            and ${distribution_channels_md.language_spras}=${language_map.language_key};;
+            ;;
     }
 
     join: sales_order_pricing {
@@ -157,7 +151,7 @@ explore: sales_orders {
       relationship: one_to_many
       sql_on: ${sales_orders.client_mandt}=${divisions_md.client_mandt}
             and ${sales_orders.division_spart}=${divisions_md.division_spart}
-            and ${language_map.language_key}=${divisions_md.language_key_spras} ;;
+             ;;
     }
 
     join: sales_order_header_status {
@@ -192,15 +186,10 @@ explore: sales_orders {
 
 explore: vendor_performance {
   sql_always_where: ${vendor_performance.client_mandt} = '{{ _user_attributes['client_id_rep'] }}'
-    and ${language_map.looker_locale}='{{ _user_attributes['locale'] }}'
+
     ;;
 
-  join: language_map {
-    fields: []
-    type: left_outer
-    sql_on: ${vendor_performance.language_key} = ${language_map.language_key} ;;
-    relationship: many_to_one
-  }
+
 
   join: materials_valuation_v2 {
     type: left_outer
@@ -250,7 +239,7 @@ explore: materials_valuation_v2 {
 
 explore: inventory_metrics_overview {
   sql_always_where: ${inventory_metrics_overview.client_mandt} = '{{ _user_attributes['client_id_rep'] }}'
-  and ${language_map.looker_locale}='{{ _user_attributes['locale'] }}';;
+  ;;
 
   join: inventory_by_plant {
     type: left_outer
@@ -261,25 +250,14 @@ explore: inventory_metrics_overview {
     ;;
   }
 
-  join: language_map {
-    fields: []
-    type: left_outer
-    sql_on: ${inventory_metrics_overview.language_spras} = ${language_map.language_key} ;;
-    relationship: many_to_one
-  }
 }
 
 explore: inventory_by_plant {
     sql_always_where: ${inventory_by_plant.client_mandt} = '{{ _user_attributes['client_id_rep'] }}'
-        and ${language_map.looker_locale}='{{ _user_attributes['locale'] }}'
+
     ;;
 
-  join: language_map {
-    fields: []
-    type: left_outer
-    sql_on: ${inventory_by_plant.language_spras} = ${language_map.language_key} ;;
-    relationship: many_to_one
-  }
+
 }
 
 ################################################ End of Supply Chain #################################################
