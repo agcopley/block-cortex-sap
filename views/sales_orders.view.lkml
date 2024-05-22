@@ -1413,6 +1413,7 @@ view: sales_orders {
   dimension: sales_document_type_auart {
     type: string
     sql: ${TABLE}.SalesDocumentType_AUART ;;
+    hidden: no
   }
 
   dimension: sales_document_vbeln {
