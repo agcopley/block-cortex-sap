@@ -983,6 +983,7 @@ view: sales_orders {
   dimension: net_price_netwr {
     type: number
     sql: ${TABLE}.NetPrice_NETWR ;;
+    hidden: no
   }
 
   dimension: net_price_target_currency_netpr {
