@@ -973,6 +973,21 @@ view: sales_orders {
     hidden: no
   }
 
+  dimension_group: sales_order_embarcation_date {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${embarcation.embarcation_date_date} ;;
+  }
+
   measure:  sales_order_net_price_global_currency{
     type: number
     value_format_name: Greek_Number_Format
