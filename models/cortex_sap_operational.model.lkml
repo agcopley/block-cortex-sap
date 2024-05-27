@@ -167,6 +167,14 @@ explore: sales_orders {
         and ${sales_orders.sales_document_vbeln}=${sales_order_header_status.sales_document_vbeln};;
     }
 
+  join: embarcation{
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${sales_orders.client_mandt}=${embarcation.client_mandt}
+            and ${sales_orders.sales_document_vbeln}= ${embarcation.embarcation_document_vbeln}
+            and ${sales_orders.item_posnr} = ${embarcation.embarcation_item_posnr};;
+  }
+
     join: sales_order_partner_function {
       type: left_outer
       relationship: one_to_many

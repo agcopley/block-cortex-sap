@@ -1005,6 +1005,8 @@ view: sales_orders {
     sql: ${TABLE}.NetWeightOfItem_NTGEW ;;
   }
 
+
+
   dimension_group: next_date_cmngv {
     type: time
     timeframes: [
