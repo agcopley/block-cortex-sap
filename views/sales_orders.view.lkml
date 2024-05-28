@@ -2262,6 +2262,14 @@ view: sales_orders {
   }
 
 
+  measure: sales_order_netvalue_glob_curr_doc_type_1 {
+    type: number
+    sql: SUM(${sales_order_netvalue_glob_curr_doc_type}) ;;
+    value_format : "0.00"
+    hidden: no
+  }
+
+
   measure: sales_order_netvalue_global_currency_product {
     type: number
     value_format_name: "Greek_Number_Format"
@@ -2273,6 +2281,19 @@ view: sales_orders {
     hidden: no
   }
 
+  measure: sales_order_netvalue_global_currency_product_doc_type {
+    type: number
+    value_format_name: "Greek_Number_Format"
+    sql: sum(${sales_order_netvalue_glob_curr_doc_type}) ;;
+    link: {
+      label: "Sales Performance by Product"
+      url: "/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_04_c_sales_performance_by_productperformance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&Currency={{ _filters['currency_conversion_new.tcurr']| url_encode }}"
+    }
+    hidden: no
+  }
+
+
+
   measure: sales_order_netvalue_global_currency_sales_org {
     type: number
     value_format_name: "Greek_Number_Format"
@@ -2283,6 +2304,20 @@ view: sales_orders {
     }
     hidden: no
   }
+
+
+  measure: sales_order_netvalue_global_currency_sales_org_doc_type {
+    type: number
+    value_format_name: "Greek_Number_Format"
+    sql: sum(${sales_order_netvalue_glob_curr_doc_type});;
+    link: {
+      label: "Sales Performance by Sales_Org"
+      url: "/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_04_d_sales_performance_by_sales_orgperformance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&Currency={{ _filters['currency_conversion_new.tcurr']| url_encode }}"
+    }
+    hidden: no
+  }
+
+
   measure: sales_order_netvalue_global_currency_dist_channel {
     type: number
     value_format_name: "Greek_Number_Format"
@@ -2293,6 +2328,19 @@ view: sales_orders {
     }
     hidden: no
   }
+
+  measure: sales_order_netvalue_global_currency_dist_channel_doc_type {
+    type: number
+    value_format_name: "Greek_Number_Format"
+    sql: sum(${sales_order_netvalue_glob_curr_doc_type});;
+    link: {
+      label: "Sales Performance by Distribution Channel"
+      url: "/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_04_a_sales_performance_by_distribution_channelperformance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&Currency={{ _filters['currency_conversion_new.tcurr']| url_encode }}"
+    }
+    hidden: no
+  }
+
+
   measure: sales_order_netvalue_global_currency_division {
     type: number
     value_format_name: "Greek_Number_Format"
@@ -2303,6 +2351,19 @@ view: sales_orders {
     }
     hidden: no
   }
+
+
+  measure: sales_order_netvalue_global_currency_division_doc_type {
+    type: number
+    value_format_name: "Greek_Number_Format"
+    sql: sum(${sales_order_netvalue_glob_curr_doc_type});;
+    link: {
+      label: "Sales Performance by Division"
+      url: "/dashboards/cortex_sap_operational::sap_order_to_cash_o2c_04_b_sales_performance_by_divisionperformance_tuning?Region={{ _filters['countries_md.country_name_landx']| url_encode }}&Year={{ _filters['sales_orders.creation_date_erdat_date']| url_encode }}&Sales+Org={{ _filters['sales_organizations_md.sales_org_name_vtext']| url_encode }}&Distribution+Channel={{ _filters['distribution_channels_md.distribution_channel_name_vtext']| url_encode }}&Product={{ _filters['materials_md.material_text_maktx']| url_encode }}&Division={{ _filters['divisions_md.division_name_vtext']| url_encode }}&Currency={{ _filters['currency_conversion_new.tcurr']| url_encode }}"
+    }
+    hidden: no
+  }
+
   measure: sales_order_netvalue_global_currency_1 {
     type: number
     value_format_name: Greek_Number_Format
