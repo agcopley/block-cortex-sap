@@ -973,6 +973,13 @@ view: sales_orders {
     hidden: no
   }
 
+  dimension: sales_order_net_price_glob_curr_doc_type {
+    type: number
+    sql: IF(${sales_document_type_auart} like '%N%',-1 * ${sales_order_net_price_local_currency} * ${currency_conversion_new.ukurs}, ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs});;
+    hidden: no
+  }
+
+
   dimension_group: sales_order_embarcation_date {
     type: time
     timeframes: [
@@ -994,6 +1001,14 @@ view: sales_orders {
     sql: avg(${sales_order_net_price_glob_curr}) ;;
     hidden: no
   }
+
+  measure:  sales_order_net_price_global_currency_doc_type{
+    type: number
+    value_format_name: Greek_Number_Format
+    sql: avg(${sales_order_net_price_glob_curr_doc_type}) ;;
+    hidden: no
+  }
+
 
   dimension: net_price_netwr {
     type: number
