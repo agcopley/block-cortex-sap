@@ -64,15 +64,7 @@ explore: sales_orders {
           and ${sales_orders.client_mandt}=${deliveries.client_mandt};;
   }
 
-  join: currency_conversion_new {
-    type: left_outer
-    relationship: one_to_many
-    sql_on: ${sales_orders.client_mandt}=${currency_conversion_new.mandt}
-          and ${sales_orders.currency_waerk}=${currency_conversion_new.fcurr}
-          and ${sales_orders.creation_date_erdat_date} = ${currency_conversion_new.conv_date}
-          and ${currency_conversion_new.kurst} = "M"
-          ;;
-  }
+
 
   join: billing {
     type: left_outer
@@ -81,6 +73,19 @@ explore: sales_orders {
           and ${sales_orders.item_posnr}=${billing.sales_document_item_aupos}
           and ${sales_orders.client_mandt}=${billing.client_mandt} ;;
   }
+
+
+  join: currency_conversion_new {
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${sales_orders.client_mandt}=${currency_conversion_new.mandt}
+          and ${sales_orders.currency_waerk}=${currency_conversion_new.fcurr}
+          and ${billing.billing_date_fkdat_date} = ${currency_conversion_new.conv_date}
+          and ${currency_conversion_new.kurst} = "M"
+          ;;
+  }
+
+
 
   join: materials_md {
     type: left_outer
