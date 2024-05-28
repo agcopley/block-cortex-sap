@@ -993,6 +993,7 @@ view: sales_orders {
     convert_tz: no
     datatype: date
     sql: ${embarcation.embarcation_date_date} ;;
+    hidden:  no
   }
 
   measure:  sales_order_net_price_global_currency{
