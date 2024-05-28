@@ -2248,7 +2248,7 @@ view: sales_orders {
 
   measure: sales_order_netvalue_glob_curr_doc_type {
     type: number
-    sql: SUM(IF(${sales_document_type_auart} like '%N%',-1 * ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs}, ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs}));;
+    sql: IF(${sales_document_type_auart} like '%N%',-1 * ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs}, ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs});;
     value_format : "0.00"
     hidden: no
   }
