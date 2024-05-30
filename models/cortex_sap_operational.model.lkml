@@ -80,7 +80,7 @@ explore: sales_orders {
     type: left_outer
     relationship: one_to_many
     sql_on: ${siifolio.billing_document_vbeln}=${billing.billing_document_vbeln}
-          and ${siifolio.client_mandt}.client_mandt}=${billing.client_mandt} ;;
+          and ${siifolio.client_mandt}=${billing.client_mandt} ;;
   }
 
 
