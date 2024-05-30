@@ -408,6 +408,23 @@ view: sales_orders {
     hidden: no
   }
 
+  dimension_group: header_creation_date_erdat {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.HeaderCreationDate_ERDAT ;;
+    hidden: no
+  }
+
+
   dimension: creation_time_erzet {
     type: string
     sql: ${TABLE}.CreationTime_ERZET ;;
