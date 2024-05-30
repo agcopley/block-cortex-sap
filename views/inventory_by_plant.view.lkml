@@ -2,7 +2,7 @@ view: inventory_by_plant {
   derived_table: {
     sql: select * from `@{GCP_PROJECT}.@{REPORTING_DATASET}.InventoryByPlant`;;
   }
-  
+
   fields_hidden_by_default: yes
 
   dimension: key {
@@ -226,6 +226,7 @@ view: inventory_by_plant {
     type: string
     label: "Material Number"
     sql: ${TABLE}.MaterialNumber_MATNR ;;
+    hidden: no
   }
 
   dimension: material_text_maktx {
@@ -348,7 +349,7 @@ view: inventory_by_plant {
     sql: ${TABLE}.WeekEndDate ;;
     hidden: no
   }
-  
+
   measure: count {
     type: count
     drill_fields: []
