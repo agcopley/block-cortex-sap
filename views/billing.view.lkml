@@ -9,7 +9,7 @@ view: billing {
   # Here's what a typical dimension looks like in LookML.
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Accounting Document Number Belnr" in Explore.
-  
+
   fields_hidden_by_default: yes
 
   dimension: key {
@@ -17,10 +17,11 @@ view: billing {
     primary_key: yes
     sql: CONCAT(${client_mandt},${billing_document_vbeln},${billing_item_posnr});;
   }
-  
+
   dimension: accounting_document_number_belnr {
     type: string
     sql: ${TABLE}.AccountingDocumentNumber_BELNR ;;
+    hidden: no
   }
 
   dimension: accrual_billing_type_fkart {
@@ -32,7 +33,7 @@ view: billing {
     type: number
     sql: ${TABLE}.ActualBilledQuantity_FKIMG ;;
   }
-  
+
   measure: total_actual_billed_quantity_fkimg {
     type: number
     sql: SUM(${actual_billed_quantity_fkimg}) ;;
@@ -76,6 +77,7 @@ view: billing {
   dimension: billing_document_vbeln {
     type: string
     sql: ${TABLE}.BillingDocument_VBELN ;;
+    hidden: no
   }
 
   dimension: billing_item_posnr {
@@ -316,6 +318,7 @@ view: billing {
   dimension: net_value_netwr {
     type: number
     sql: ${TABLE}.NetValue_NETWR ;;
+    hidden: no
   }
 
   dimension: net_weight_ntgew {
@@ -461,6 +464,7 @@ view: billing {
   dimension: sold_to_party_kunag {
     type: string
     sql: ${TABLE}.SoldToParty_KUNAG ;;
+    hidden: no
   }
 
   dimension: status_for_transfer_to_accounting_rfbsk {
@@ -471,6 +475,7 @@ view: billing {
   dimension: storage_location_lgort {
     type: string
     sql: ${TABLE}.StorageLocation_LGORT ;;
+    hidden: no
   }
 
   dimension: tax_amount_mwsbk {
