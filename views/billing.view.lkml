@@ -232,6 +232,7 @@ view: billing {
   dimension: incoterms_part1_inco1 {
     type: string
     label: "Final Destination"
+    hidden: no
     sql: ${TABLE}.IncotermsPart1_INCO1 ;;
   }
 

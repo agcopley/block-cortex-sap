@@ -30,6 +30,7 @@ view: plants {
   dimension: plant_werks_name {
     type: string
     label: "Port_Airport"
+    hidden: no
     sql: ${TABLE}.Name_NAME1 ;;
   }
 

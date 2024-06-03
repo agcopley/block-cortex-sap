@@ -977,6 +977,7 @@ view: sales_orders {
   dimension: name_of_orderer_bname {
     type: string
     label: "Ship"
+    hidden: no
     sql: ${TABLE}.NameOfOrderer_BNAME ;;
   }
 
