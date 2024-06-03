@@ -231,13 +231,13 @@ view: billing {
 
   dimension: incoterms_part1_inco1 {
     type: string
-    hidden: no
     sql: ${TABLE}.IncotermsPart1_INCO1 ;;
   }
 
   dimension: incoterms_part2_inco2 {
     type: string
     label: "Final Destination"
+    hidden:  no
     sql: ${TABLE}.IncotermsPart2_INCO2 ;;
   }
 
