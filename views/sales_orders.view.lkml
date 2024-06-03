@@ -1016,14 +1016,14 @@ view: sales_orders {
   measure:  sales_order_net_price_global_currency{
     type: number
     value_format_name: Greek_Number_Format
-    sql: avg(${sales_order_net_price_glob_curr}) ;;
+    sql: sum(${sales_order_net_price_glob_curr}) ;;
     hidden: no
   }
 
   measure:  sales_order_net_price_global_currency_doc_type{
     type: number
     value_format_name: Greek_Number_Format
-    sql: avg(${sales_order_net_price_glob_curr_doc_type}) ;;
+    sql: sum(${sales_order_net_price_glob_curr_doc_type}) ;;
     hidden: no
   }
 
@@ -2400,7 +2400,7 @@ view: sales_orders {
   measure: sales_order_netvalue_global_currency_1 {
     type: number
     value_format_name: Greek_Number_Format
-    sql: avg(${sales_order_netvalue_glob_curr}) ;;
+    sql: sum(${sales_order_netvalue_glob_curr}) ;;
   }
 
   measure: count {
