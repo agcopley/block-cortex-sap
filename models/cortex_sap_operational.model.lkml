@@ -66,6 +66,12 @@ explore: sales_orders {
   }
 
 
+  join: plants{
+    type: left_outer
+    relationship: one_to_many
+    sql_on: ${plants.plant_werks}=${deliveries.plant_werks}
+          and ${plants.client_mandt}=${deliveries.client_mandt};;
+  }
 
   join: billing {
     type: left_outer

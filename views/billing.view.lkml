@@ -20,6 +20,7 @@ view: billing {
 
   dimension: accounting_document_number_belnr {
     type: string
+    label: "Accounting Doc Num"
     sql: ${TABLE}.AccountingDocumentNumber_BELNR ;;
     hidden: no
   }
@@ -37,6 +38,7 @@ view: billing {
 
   measure: total_actual_billed_quantity_fkimg {
     type: number
+    label: "Invoice Quantity"
     sql: SUM(${actual_billed_quantity_fkimg}) ;;
     hidden: no
   }
@@ -229,6 +231,7 @@ view: billing {
 
   dimension: incoterms_part1_inco1 {
     type: string
+    label: "Final Destination"
     sql: ${TABLE}.IncotermsPart1_INCO1 ;;
   }
 
