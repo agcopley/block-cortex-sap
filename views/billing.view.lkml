@@ -31,6 +31,7 @@ view: billing {
 
   dimension: actual_billed_quantity_fkimg {
     type: number
+    label: "Invoice Quantity"
     sql: ${TABLE}.ActualBilledQuantity_FKIMG ;;
   }
 
@@ -76,6 +77,7 @@ view: billing {
 
   dimension: billing_document_vbeln {
     type: string
+    label: "Invoice Number"
     sql: ${TABLE}.BillingDocument_VBELN ;;
     hidden: no
   }
@@ -317,6 +319,7 @@ view: billing {
 
   dimension: net_value_netwr {
     type: number
+    label: "Invoice Amount"
     sql: ${TABLE}.NetValue_NETWR ;;
     hidden: no
   }
@@ -463,6 +466,7 @@ view: billing {
 
   dimension: sold_to_party_kunag {
     type: string
+    label: "Cliente Reference"
     sql: ${TABLE}.SoldToParty_KUNAG ;;
     hidden: no
   }
@@ -475,6 +479,7 @@ view: billing {
   dimension: storage_location_lgort {
     type: string
     sql: ${TABLE}.StorageLocation_LGORT ;;
+    label: "Store"
     hidden: no
   }
 
@@ -539,6 +544,7 @@ view: billing {
 
   dimension: week_of_billing_date_fkdat {
     type: number
+    label: "Invoice Date"
     sql: ${TABLE}.WeekOfBillingDate_FKDAT ;;
   }
 

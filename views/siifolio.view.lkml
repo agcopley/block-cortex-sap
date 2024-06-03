@@ -34,11 +34,13 @@ view: siifolio {
 
   dimension: sii_document_type_tipodte {
     type: string
+    label: "SII Document Code"
     sql: ${TABLE}.SiiDocumentType_TIPODTE ;;
   }
 
   dimension: sii_folio_number_folio {
     type: string
+    label: "SII Folio Number"
     sql: ${TABLE}.SiiFolioNumber_FOLIO ;;
   }
 
