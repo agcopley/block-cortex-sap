@@ -1466,6 +1466,7 @@ view: sales_orders {
   dimension: sales_document_type_auart {
     type: string
     sql: ${TABLE}.SalesDocumentType_AUART ;;
+    label: "Invoice Document Type"
     hidden: no
   }
 
