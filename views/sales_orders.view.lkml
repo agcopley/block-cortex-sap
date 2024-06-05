@@ -1501,9 +1501,17 @@ view: sales_orders {
 
   dimension: sales_order_value_glob_curr {
     type: number
+
     sql: ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs} ;;
     hidden: no
   }
+
+  dimension: sales_order_value_glob_curr_doc_type {
+    type: number
+    sql: IF(${sales_document_type_auart} like '%N%',-1 * ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs}, ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs});;
+    hidden: no
+  }
+
 
   measure: sales_order_value_global_currency {
     type: sum
