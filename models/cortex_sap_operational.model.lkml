@@ -95,7 +95,7 @@ explore: sales_orders {
     relationship: one_to_many
     sql_on: ${sales_orders.client_mandt}=${currency_conversion_new.mandt}
           and ${sales_orders.currency_waerk}=${currency_conversion_new.fcurr}
-          and ${billing.billing_date_fkdat_date} = ${currency_conversion_new.conv_date}
+          and ISNULL(${billing.billing_date_fkdat_date},${sales_orders.creation_date_erdat_date}) = ${currency_conversion_new.conv_date}
           and ${currency_conversion_new.kurst} = "M"
           ;;
   }
