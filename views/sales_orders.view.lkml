@@ -1999,7 +1999,7 @@ view: sales_orders {
   ##################################################### Total Orders  ############################################################
   dimension: total_orders {
     type: string
-    sql: if(${document_category_vbtyp}='C',${sales_document_vbeln}||${item_posnr},NULL) ;;
+    sql: (${sales_document_vbeln}||${item_posnr}) ;;
     hidden: no
   }
 
@@ -2080,7 +2080,7 @@ view: sales_orders {
 
   measure: count_canceled_order {
     type: count_distinct
-    sql: if(${document_category_vbtyp}='C',${sales_document_vbeln}||${item_posnr},NULL) ;;
+    sql: (${sales_document_vbeln}||${item_posnr}) ;;
     filters: [canceled_order: "Canceled"]
     hidden: no
   }
@@ -2127,7 +2127,7 @@ view: sales_orders {
 
   measure: count_total_orders {
     type: count_distinct
-    sql: if(${document_category_vbtyp}='C',${sales_document_vbeln}||${item_posnr},NULL) ;;
+    sql: (${sales_document_vbeln}||${item_posnr}) ;;
     hidden: no
   }
 
