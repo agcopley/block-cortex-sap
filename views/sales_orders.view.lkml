@@ -999,10 +999,10 @@ view: sales_orders {
   }
 
 
-  dimension: sales_order_credit_note_doc_type {
+  dimension: sales_order_credit_note {
     type: string
     label: "Credit note"
-    sql: IF(${sales_document_type_auart} like '%N%','N/C','!N/C'});;
+    sql: ${TABLE}.NetPrice_SalesDocumentCreditNote ;;
     hidden: no
   }
 
