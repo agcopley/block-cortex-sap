@@ -420,6 +420,7 @@ view: sales_orders {
     ]
     convert_tz: no
     datatype: date
+    label: "Order Header Date"
     sql: ${TABLE}.HeaderCreationDate_ERDAT ;;
     hidden: no
   }
@@ -1503,7 +1504,7 @@ view: sales_orders {
   dimension: sales_order_value_glob_curr {
     type: number
 
-    sql: ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs} ;;
+    sql: ROUND(${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs},2) ;;
     hidden: no
   }
 
@@ -2080,7 +2081,7 @@ view: sales_orders {
 
   measure: count_canceled_order {
     type: count_distinct
-    sql: (${sales_document_vbeln}||${item_posnr}) ;;
+    sql: if(${document_category_vbtyp}='C',${sales_document_vbeln}||${item_posnr},NULL) ;;
     filters: [canceled_order: "Canceled"]
     hidden: no
   }
