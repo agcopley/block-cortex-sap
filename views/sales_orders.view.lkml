@@ -999,6 +999,14 @@ view: sales_orders {
   }
 
 
+  dimension: sales_order_credit_note_doc_type {
+    type: string
+    label: "Credit note"
+    sql: IF(${sales_document_type_auart} like '%N%','N/C','!N/C'});;
+    hidden: no
+  }
+
+
   dimension_group: sales_order_embarcation_date {
     type: time
     timeframes: [
