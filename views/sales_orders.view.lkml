@@ -999,13 +999,6 @@ view: sales_orders {
   }
 
 
-  dimension: sales_order_credit_note {
-    type: string
-    label: "Sales Type"
-    sql: IF(${sales_document_type_auart} like '%N%', 'N/C',IF(${sales_document_type_auart} like '%K%' and ${open_orders}="OpenOrder",'S/C','S/O')) ;;
-    hidden: no
-  }
-
 
   dimension_group: sales_order_embarcation_date {
     type: time
@@ -2116,6 +2109,14 @@ view: sales_orders {
     sql: if(${canceled_order}="Canceled","Canceled",if(${open_orders}="OpenOrder","Open","Closed")) ;;
     hidden: no
   }
+
+  dimension: sales_order_credit_note {
+    type: string
+    label: "Sales Type"
+    sql: IF(${sales_document_type_auart} like '%N%', 'N/C',IF(${sales_document_type_auart} like '%K%' and ${open_orders}="OpenOrder",'S/C','S/O')) ;;
+    hidden: no
+  }
+
 
   #################################################### One Touch Order ############################
   measure: count_one_touch_order {
