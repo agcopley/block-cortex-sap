@@ -1510,7 +1510,7 @@ view: sales_orders {
 
   dimension: sales_order_value_glob_curr_doc_type {
     type: number
-    sql: IF(${sales_document_type_auart} like '%N%',-1 * ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs}, ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs});;
+    sql: ROUND(IF(${sales_document_type_auart} like '%N%',-1 * ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs}, ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs}),2);;
     hidden: no
   }
 
