@@ -1999,7 +1999,7 @@ view: sales_orders {
   ##################################################### Total Orders  ############################################################
   dimension: total_orders {
     type: string
-    sql: (${sales_document_vbeln}||${item_posnr}) ;;
+    sql: if(${document_category_vbtyp}='C',${sales_document_vbeln}||${item_posnr},NULL) ;;
     hidden: no
   }
 
