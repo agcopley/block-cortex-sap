@@ -1001,8 +1001,8 @@ view: sales_orders {
 
   dimension: sales_order_credit_note {
     type: string
-    label: "Credit note"
-    sql: ${TABLE}.SalesDocumentCreditNote ;;
+    label: "Sales Type"
+    sql: IF(${sales_document_type_auart} like '%N%', 'N/C',IF(${sales_document_type_auart} like '%K%' and ${open_orders}="OpenOrder",'S/C','S/O')) ;;
     hidden: no
   }
 
