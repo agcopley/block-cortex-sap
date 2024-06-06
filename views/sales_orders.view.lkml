@@ -1002,7 +1002,7 @@ view: sales_orders {
   dimension: sales_order_credit_note {
     type: string
     label: "Credit note"
-    sql: ${TABLE}.NetPrice_SalesDocumentCreditNote ;;
+    sql: ${TABLE}.SalesDocumentCreditNote ;;
     hidden: no
   }
 
