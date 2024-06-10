@@ -995,7 +995,7 @@ view: sales_orders {
 
   dimension: sales_order_net_price_glob_curr_doc_type {
     type: number
-    sql: IF(${sales_document_type_auart} like '%N%',-1 * ${sales_order_net_price_local_currency} * ${currency_conversion_new.ukurs}, ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs});;
+    sql: IF(${sales_document_type_auart} like '%N%',1 * ${sales_order_net_price_local_currency} * ${currency_conversion_new.ukurs}, ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs});;
     hidden: no
   }
 
@@ -1510,7 +1510,7 @@ view: sales_orders {
 
   dimension: sales_order_value_glob_curr_doc_type {
     type: number
-    sql: ROUND(IF(${sales_document_type_auart} like '%N%',-1 * ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs}, ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs}),2);;
+    sql: ROUND(IF(${sales_document_type_auart} like '%N%', 1* ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs}, ${sales_order_value_line_item_source_currency} * ${currency_conversion_new.ukurs}),2);;
     hidden: no
   }
 
@@ -2303,7 +2303,7 @@ view: sales_orders {
 
   dimension: sales_order_netvalue_glob_curr_doc_type {
     type: number
-    sql: IF(${sales_document_type_auart} like '%N%',-1 * ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs}, ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs});;
+    sql: IF(${sales_document_type_auart} like '%N%',1 * ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs}, ${sales_order_netvalue_local_currency} * ${currency_conversion_new.ukurs});;
     hidden: no
   }
 
