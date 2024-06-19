@@ -75,7 +75,9 @@
       Sales Org: sales_organizations_md.sales_org_name_vtext
       Distribution Channel: distribution_channels_md.distribution_channel_name_vtext
       Product: materials_md.material_text_maktx
-      Header Creation Date Erdat Date: sales_orders.header_creation_date_erdat_date
+      Year: sales_orders.header_creation_date_erdat_date
+      Sales Order Status: sales_orders.sales_order_status
+      Sales Type: sales_orders.sales_order_credit_note
     row: 3
     col: 0
     width: 24
@@ -137,7 +139,9 @@
       Sales Org: sales_organizations_md.sales_org_name_vtext
       Distribution Channel: distribution_channels_md.distribution_channel_name_vtext
       Product: materials_md.material_text_maktx
-      Header Creation Date Erdat Date: sales_orders.header_creation_date_erdat_date
+      Year: sales_orders.header_creation_date_erdat_date
+      Sales Order Status: sales_orders.sales_order_status
+      Sales Type: sales_orders.sales_order_credit_note
     row: 9
     col: 0
     width: 24
@@ -231,7 +235,9 @@
       Sales Org: sales_organizations_md.sales_org_name_vtext
       Distribution Channel: distribution_channels_md.distribution_channel_name_vtext
       Product: materials_md.material_text_maktx
-      Header Creation Date Erdat Date: sales_orders.header_creation_date_erdat_date
+      Year: sales_orders.header_creation_date_erdat_date
+      Sales Order Status: sales_orders.sales_order_status
+      Sales Type: sales_orders.sales_order_credit_note
     row: 15
     col: 0
     width: 12
@@ -271,7 +277,9 @@
       Sales Org: sales_organizations_md.sales_org_name_vtext
       Distribution Channel: distribution_channels_md.distribution_channel_name_vtext
       Product: materials_md.material_text_maktx
-      Header Creation Date Erdat Date: sales_orders.header_creation_date_erdat_date
+      Year: sales_orders.header_creation_date_erdat_date
+      Sales Order Status: sales_orders.sales_order_status
+      Sales Type: sales_orders.sales_order_credit_note
     row: 15
     col: 12
     width: 12
@@ -324,7 +332,9 @@
       Sales Org: sales_organizations_md.sales_org_name_vtext
       Distribution Channel: distribution_channels_md.distribution_channel_name_vtext
       Product: materials_md.material_text_maktx
-      Header Creation Date Erdat Date: sales_orders.header_creation_date_erdat_date
+      Year: sales_orders.header_creation_date_erdat_date
+      Sales Order Status: sales_orders.sales_order_status
+      Sales Type: sales_orders.sales_order_credit_note
     row: 21
     col: 0
     width: 4
@@ -388,7 +398,9 @@
       Sales Org: sales_organizations_md.sales_org_name_vtext
       Distribution Channel: distribution_channels_md.distribution_channel_name_vtext
       Product: materials_md.material_text_maktx
-      Header Creation Date Erdat Date: sales_orders.header_creation_date_erdat_date
+      Year: sales_orders.header_creation_date_erdat_date
+      Sales Order Status: sales_orders.sales_order_status
+      Sales Type: sales_orders.sales_order_credit_note
     row: 21
     col: 4
     width: 10
@@ -449,7 +461,9 @@
       Sales Org: sales_organizations_md.sales_org_name_vtext
       Distribution Channel: distribution_channels_md.distribution_channel_name_vtext
       Product: materials_md.material_text_maktx
-      Header Creation Date Erdat Date: sales_orders.header_creation_date_erdat_date
+      Year: sales_orders.header_creation_date_erdat_date
+      Sales Order Status: sales_orders.sales_order_status
+      Sales Type: sales_orders.sales_order_credit_note
     row: 21
     col: 14
     width: 10
@@ -479,14 +493,16 @@
       Sales Org: sales_organizations_md.sales_org_name_vtext
       Distribution Channel: distribution_channels_md.distribution_channel_name_vtext
       Product: materials_md.material_text_maktx
-      Header Creation Date Erdat Date: sales_orders.header_creation_date_erdat_date
+      Year: sales_orders.header_creation_date_erdat_date
+      Sales Order Status: sales_orders.sales_order_status
+      Sales Type: sales_orders.sales_order_credit_note
     row: 0
     col: 0
     width: 24
     height: 2
   filters:
-  - name: Header Creation Date Erdat Date
-    title: Header Creation Date Erdat Date
+  - name: Year
+    title: Year
     type: field_filter
     default_value: this year to second
     allow_multiple_values: true
@@ -577,3 +593,29 @@
     explore: sales_orders
     listens_to_filters: []
     field: materials_md.material_text_maktx
+  - name: Sales Order Status
+    title: Sales Order Status
+    type: field_filter
+    default_value: Closed
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: button_group
+      display: inline
+    model: cortex_sap_operational
+    explore: sales_orders
+    listens_to_filters: []
+    field: sales_orders.sales_order_status
+  - name: Sales Type
+    title: Sales Type
+    type: field_filter
+    default_value: S/O
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: button_group
+      display: inline
+    model: cortex_sap_operational
+    explore: sales_orders
+    listens_to_filters: []
+    field: sales_orders.sales_order_credit_note

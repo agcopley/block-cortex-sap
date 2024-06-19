@@ -106,7 +106,7 @@
       Invoice Document Type: sales_orders.sales_document_type_auart
       Sales Order Status: sales_orders.sales_order_status
       Sales Type: sales_orders.sales_order_credit_note
-      Order Header Date: sales_orders.header_creation_date_erdat_date
+      Year: sales_orders.header_creation_date_erdat_date
     row: 4
     col: 0
     width: 24
@@ -139,14 +139,14 @@
       Invoice Document Type: sales_orders.sales_document_type_auart
       Sales Order Status: sales_orders.sales_order_status
       Sales Type: sales_orders.sales_order_credit_note
-      Order Header Date: sales_orders.header_creation_date_erdat_date
+      Year: sales_orders.header_creation_date_erdat_date
     row: 0
     col: 0
     width: 24
     height: 2
   filters:
-  - name: Order Header Date
-    title: Order Header Date
+  - name: Year
+    title: Year
     type: field_filter
     default_value: this year to second
     allow_multiple_values: true
